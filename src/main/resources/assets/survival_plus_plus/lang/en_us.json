@@ -4,6 +4,9 @@
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position": "Broadcast Death Position",
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position.desc": "When a player dies, his death position are broadcast",
 
+  "survival_plus_plus.rolling_gate.rule.creative_no_clip": "Creative no clip",
+  "survival_plus_plus.rolling_gate.rule.creative_no_clip.desc": "Creative no clip",
+
   "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator": "Simple In Game Calculator",
   "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator.desc": "Simple In Game Calculator",
 

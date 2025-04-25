@@ -5,9 +5,15 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "survival_plus_plus.refmap.json",
   "mixins": [
-    "ServerPlayerMixin"
+    "BlockItemAccessor",
+    "BlockItemMixin",
+    "PlayerMixin",
+    "ServerPlayerMixin",
+    "ShulkerBoxBlockEntityMixin",
+    "StandingAndWallBlockItemMixin"
   ],
   "client": [
+    "LevelRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

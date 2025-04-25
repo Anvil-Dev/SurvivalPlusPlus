@@ -4,6 +4,9 @@
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position": "广播死亡位置",
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position.desc": "当玩家死亡时，他的死亡位置会被广播",
 
+  "survival_plus_plus.rolling_gate.rule.creative_no_clip": "创造玩家无碰撞检测",
+  "survival_plus_plus.rolling_gate.rule.creative_no_clip.desc": "创造玩家可以穿过方块",
+
   "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator": "游戏内简单计算器",
   "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator.desc": "游戏内简单计算器",
 
