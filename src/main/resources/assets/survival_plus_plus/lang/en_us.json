@@ -4,11 +4,17 @@
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position": "Broadcast Death Position",
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position.desc": "When a player dies, his death position are broadcast",
 
+  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator": "Simple In Game Calculator",
+  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator.desc": "Simple In Game Calculator",
+
   "survival_plus_plus.rolling_gate.rule.creative_no_clip": "Creative no clip",
   "survival_plus_plus.rolling_gate.rule.creative_no_clip.desc": "Creative no clip",
 
-  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator": "Simple In Game Calculator",
-  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator.desc": "Simple In Game Calculator",
+  "survival_plus_plus.rolling_gate.rule.xp_no_cooldown": "Xp No Cooldown",
+  "survival_plus_plus.rolling_gate.rule.xp_no_cooldown.desc": "Players absorb XP instantly, without delay",
+
+  "survival_plus_plus.rolling_gate.rule.fast_leaf_decay": "Fast Leaf Decay",
+  "survival_plus_plus.rolling_gate.rule.fast_leaf_decay.desc": "Speeds up leaf decay after you cut down the wood in a tree",
 
   "broadcast_death_position.message.position.hover": "Click Copy to clipboard",
   "broadcast_death_position.message.position": "[%s, %s, %s]",

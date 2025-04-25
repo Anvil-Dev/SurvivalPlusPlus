@@ -4,11 +4,17 @@
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position": "广播死亡位置",
   "survival_plus_plus.rolling_gate.rule.broadcast_death_position.desc": "当玩家死亡时，他的死亡位置会被广播",
 
+  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator": "游戏内简单计算器",
+  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator.desc": "游戏内简单计算器",
+
   "survival_plus_plus.rolling_gate.rule.creative_no_clip": "创造玩家无碰撞检测",
   "survival_plus_plus.rolling_gate.rule.creative_no_clip.desc": "创造玩家可以穿过方块",
 
-  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator": "游戏内简单计算器",
-  "survival_plus_plus.rolling_gate.rule.simple_in_game_calculator.desc": "游戏内简单计算器",
+  "survival_plus_plus.rolling_gate.rule.xp_no_cooldown": "经验吸收无冷却",
+  "survival_plus_plus.rolling_gate.rule.xp_no_cooldown.desc": "玩家吸收经验球时不会有冷却时间",
+
+  "survival_plus_plus.rolling_gate.rule.fast_leaf_decay": "快速树叶腐烂",
+  "survival_plus_plus.rolling_gate.rule.fast_leaf_decay.desc": "在砍伐树上的木头后加速树叶腐烂",
 
   "broadcast_death_position.message.position.hover": "点击复制到剪贴板",
   "broadcast_death_position.message.position": "[%s, %s, %s]",

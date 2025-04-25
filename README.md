@@ -20,5 +20,11 @@
   * `=1+1*2/3^4`
 
 ### Creative No Clip
+
 > Creative No Clip
 * enable: `/rg creativeNoClip true`
+
+### Xp No Cooldown
+
+> Players absorb XP instantly, without delay
+* enable: `/rg xpNoCooldown true`

@@ -1,8 +1,8 @@
 package dev.anvilcraft.rg.survival.event.listener;
 
-import dev.anvilcraft.rg.RollingGate;
 import dev.anvilcraft.rg.api.event.ServerPlayerChatEvent;
 import dev.anvilcraft.rg.api.server.TranslationUtil;
+import dev.anvilcraft.rg.survival.SurvivalPlusPlus;
 import dev.anvilcraft.rg.survival.SurvivalPlusPlusServerRules;
 import dev.anvilcraft.rg.survival.event.PlayerCanPlaceBlockItemEvent;
 import dev.anvilcraft.rg.survival.event.PlayerCanPlaceStandingAndWallBlockItemEvent;
@@ -31,7 +31,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import org.jetbrains.annotations.NotNull;
 
-@EventBusSubscriber(modid = RollingGate.MODID)
+@EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID)
 public class PlayerEventListener {
     @SubscribeEvent
     private static void onPlayerDeath(PlayerDeathEvent event) {
