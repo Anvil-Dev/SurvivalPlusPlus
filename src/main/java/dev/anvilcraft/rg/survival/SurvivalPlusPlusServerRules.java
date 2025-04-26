@@ -62,39 +62,39 @@ public class SurvivalPlusPlusServerRules {
 //    )
 //    public static boolean largeBarrel = false;
 //
-//    // 禁止苦力怕破坏
-//    @Rule(
-//        categories = {
-//            SurvivalPlusPlus.MOD_ID,
-//            RollingGateCategories.SURVIVAL
-//        }
-//    )
-//    public static boolean antiCreeperGriefing = false;
-//
-//    // 禁止恶魂破坏
-//    @Rule(
-//        categories = {
-//            SurvivalPlusPlus.MOD_ID,
-//            RollingGateCategories.SURVIVAL
-//        }
-//    )
-//    public static boolean antiGhastGriefing = false;
-//
-//    // 禁止末影人破坏
-//    @Rule(
-//        categories = {
-//            SurvivalPlusPlus.MOD_ID,
-//            RollingGateCategories.SURVIVAL
-//        }
-//    )
-//    public static boolean antiEnderManGriefing = false;
-//
-//    // 禁止末影龙破坏
-//    @Rule(
-//        categories = {
-//            SurvivalPlusPlus.MOD_ID,
-//            RollingGateCategories.SURVIVAL
-//        }
-//    )
-//    public static boolean antiEnderDragonGriefing = false;
+    // 禁止苦力怕破坏
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static boolean antiCreeperGriefing = false;
+
+    // 禁止恶魂破坏
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static boolean antiGhastGriefing = false;
+
+    // 禁止末影人破坏
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static boolean antiEnderManGriefing = false;
+
+    // 禁止末影龙破坏
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static boolean antiEnderDragonGriefing = false;
 }
