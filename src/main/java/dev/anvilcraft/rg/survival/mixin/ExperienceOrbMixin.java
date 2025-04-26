@@ -39,5 +39,6 @@ abstract class ExperienceOrbMixin extends Entity {
             if (i > 0) player.giveExperiencePoints(i);
             --this.count;
         }
+        this.discard();
     }
 }
