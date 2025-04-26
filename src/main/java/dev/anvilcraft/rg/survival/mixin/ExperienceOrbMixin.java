@@ -28,12 +28,13 @@ abstract class ExperienceOrbMixin extends Entity {
     @Shadow
     private int count;
 
-    @Inject(method = "playerTouch", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;take(Lnet/minecraft/world/entity/Entity;I)V"))
+    @Inject(method = "playerTouch", at = @At(value = "TAIL"))
     private void addXP(Player player, CallbackInfo ci) {
         if (!(player instanceof ServerPlayer serverPlayer)) return;
         if (!SurvivalPlusPlusServerRules.xpNoCooldown) return;
         serverPlayer.takeXpDelay = 0;
         while (this.count > 0) {
+            serverPlayer.take(this, 1);
             int i = this.repairPlayerItems(serverPlayer, this.value);
             if (i > 0) player.giveExperiencePoints(i);
             --this.count;
