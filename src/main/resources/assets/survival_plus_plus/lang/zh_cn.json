@@ -16,6 +16,21 @@
   "survival_plus_plus.rolling_gate.rule.fast_leaf_decay": "快速树叶腐烂",
   "survival_plus_plus.rolling_gate.rule.fast_leaf_decay.desc": "在砍伐树上的木头后加速树叶腐烂",
 
+  "survival_plus_plus.rolling_gate.rule.large_barrel": "大木桶",
+  "survival_plus_plus.rolling_gate.rule.large_barrel.desc": "史上最棒的物品仓储方块: 大木桶",
+
+  "survival_plus_plus.rolling_gate.rule.anti_creeper_griefing": "禁止苦力怕破坏",
+  "survival_plus_plus.rolling_gate.rule.anti_creeper_griefing.desc": "禁止苦力怕破坏",
+
+  "survival_plus_plus.rolling_gate.rule.anti_ghast_griefing": "禁止恶魂破坏",
+  "survival_plus_plus.rolling_gate.rule.anti_ghast_griefing.desc": "禁止恶魂破坏",
+
+  "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing": "禁止末影人破坏",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing.desc": "禁止末影人破坏",
+
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing": "禁止末影龙破坏",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing.desc": "禁止末影龙破坏",
+
   "broadcast_death_position.message.position.hover": "点击复制到剪贴板",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "玩家 %s 死在了 %s！",

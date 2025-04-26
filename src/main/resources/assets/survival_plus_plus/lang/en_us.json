@@ -16,6 +16,21 @@
   "survival_plus_plus.rolling_gate.rule.fast_leaf_decay": "Fast Leaf Decay",
   "survival_plus_plus.rolling_gate.rule.fast_leaf_decay.desc": "Speeds up leaf decay after you cut down the wood in a tree",
 
+  "survival_plus_plus.rolling_gate.rule.large_barrel": "Large Barrel",
+  "survival_plus_plus.rolling_gate.rule.large_barrel.desc": "The best storage block ever: Large barrel",
+
+  "survival_plus_plus.rolling_gate.rule.anti_creeper_griefing": "Anti Creeper Griefing",
+  "survival_plus_plus.rolling_gate.rule.anti_creeper_griefing.desc": "Anti creeper griefing",
+
+  "survival_plus_plus.rolling_gate.rule.anti_ghast_griefing": "Anti Ghast Griefing",
+  "survival_plus_plus.rolling_gate.rule.anti_ghast_griefing.desc": "Anti ghast griefing",
+
+  "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing": "Anti Ender Man Griefing",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing.desc": "Anti ender man griefing",
+
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing": "Anti Ender Dragon Griefing",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing.desc": "Anti ender dragon griefing",
+
   "broadcast_death_position.message.position.hover": "Click Copy to clipboard",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "Player %s dies at %s!",
