@@ -1,6 +1,5 @@
 dependencies {
     // Rolling Gate
     implementation "dev.anvilcraft.rg:RollingGate:${rolling_gate_version}"
-    implementation 'jep:jep:2.24'
-    jarJar('jep:jep:2.24')
+    jarJar(implementation("jep:jep:2.24"))
 }

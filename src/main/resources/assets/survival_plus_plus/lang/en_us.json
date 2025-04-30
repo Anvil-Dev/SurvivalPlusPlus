@@ -28,8 +28,8 @@
   "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing": "Anti Ender Man Griefing",
   "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing.desc": "Anti ender man griefing",
 
-  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing": "Anti Ender Dragon Griefing",
-  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing.desc": "Anti ender dragon griefing",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_gcriefing": "Anti Ender Dragon Griefing",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_gcriefing.desc": "Anti ender dragon griefing",
 
   "broadcast_death_position.message.position.hover": "Click Copy to clipboard",
   "broadcast_death_position.message.position": "[%s, %s, %s]",

@@ -28,8 +28,8 @@
   "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing": "禁止末影人破坏",
   "survival_plus_plus.rolling_gate.rule.anti_ender_man_griefing.desc": "禁止末影人破坏",
 
-  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing": "禁止末影龙破坏",
-  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_criefing.desc": "禁止末影龙破坏",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_gcriefing": "禁止末影龙破坏",
+  "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_gcriefing.desc": "禁止末影龙破坏",
 
   "broadcast_death_position.message.position.hover": "点击复制到剪贴板",
   "broadcast_death_position.message.position": "[%s, %s, %s]",

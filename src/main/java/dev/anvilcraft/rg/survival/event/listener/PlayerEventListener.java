@@ -58,7 +58,7 @@ public class PlayerEventListener {
                 .withClickEvent(
                     new ClickEvent(
                         ClickEvent.Action.COPY_TO_CLIPBOARD,
-                        "[%s, %s, %s]".formatted(
+                        "/tp @s %s %s %s".formatted(
                             player.getOnPos().getX(),
                             player.getOnPos().getY(),
                             player.getOnPos().getZ()
@@ -76,7 +76,7 @@ public class PlayerEventListener {
         Component component = event.getComponent();
         PlayerEventListener.handleChat(
             SurvivalPlusPlusServerRules.simpleInGameCalculator,
-            "=",
+            "==",
             player,
             component,
             SimpleInGameCalculator::handleChat
