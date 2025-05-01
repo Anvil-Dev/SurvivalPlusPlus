@@ -26,7 +26,7 @@ public class SimpleInGameCalculator {
         jep.parseExpression(expression);
         if (!jep.hasError()) {
             double result = jep.getValue();
-            return TranslationUtil.trans("simple_in_game_calculator.message", result).withStyle(ChatFormatting.DARK_GRAY);
+            return TranslationUtil.trans("simple_in_game_calculator.message", result).withStyle(ChatFormatting.GOLD);
         } else {
             return TranslationUtil.trans("simple_in_game_calculator.message.illegal_expression", jep.getErrorInfo());
         }
