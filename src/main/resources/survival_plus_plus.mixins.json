@@ -8,7 +8,6 @@
     "BlockItemAccessor",
     "BlockItemMixin",
     "ExperienceOrbMixin",
-    "LargeFireballMixin",
     "PlayerMixin",
     "ServerPlayerMixin",
     "ShulkerBoxBlockEntityMixin",

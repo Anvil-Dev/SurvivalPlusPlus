@@ -6,6 +6,7 @@ import dev.anvilcraft.rg.survival.event.EntityGetPistonBehaviourEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.LargeFireball;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -37,6 +38,10 @@ public class EntityEventListener {
             event.setCanGrief(false);
         } else if (type == EntityType.GHAST && SurvivalPlusPlusServerRules.antiGhastGriefing) {
             event.setCanGrief(false);
+        } else if (entity instanceof LargeFireball fireball && SurvivalPlusPlusServerRules.antiGhastGriefing) {
+            if (fireball.getOwner() != null && fireball.getOwner().getType() == EntityType.GHAST) {
+                event.setCanGrief(false);
+            }
         } else if (type == EntityType.ENDERMAN && SurvivalPlusPlusServerRules.antiEnderManGriefing) {
             event.setCanGrief(false);
         } else if (type == EntityType.ENDER_DRAGON && SurvivalPlusPlusServerRules.antiEnderDragonGriefing) {
