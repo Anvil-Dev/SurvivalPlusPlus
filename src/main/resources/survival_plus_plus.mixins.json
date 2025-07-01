@@ -8,6 +8,7 @@
     "BlockItemAccessor",
     "BlockItemMixin",
     "ExperienceOrbMixin",
+    "NaturalSpawnerMixin",
     "PlayerMixin",
     "ServerPlayerMixin",
     "ShulkerBoxBlockEntityMixin",

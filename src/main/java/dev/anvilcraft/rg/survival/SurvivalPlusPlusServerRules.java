@@ -97,4 +97,13 @@ public class SurvivalPlusPlusServerRules {
         }
     )
     public static boolean antiEnderDragonGriefing = false;
+
+    // 设置LC值为多少高度时的值
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static int qnmdLC = -1;
 }
