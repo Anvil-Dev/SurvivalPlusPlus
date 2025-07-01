@@ -31,6 +31,9 @@
   "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_griefing": "Anti Ender Dragon Griefing",
   "survival_plus_plus.rolling_gate.rule.anti_ender_dragon_griefing.desc": "Anti ender dragon griefing",
 
+  "survival_plus_plus.rolling_gate.rule.qnmd_lc": "Set LC value",
+  "survival_plus_plus.rolling_gate.rule.qnmd_lc.desc": "What is the height value for setting the LC value",
+
   "broadcast_death_position.message.position.hover": "Click Copy to clipboard",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "Player %s dies at %s!",

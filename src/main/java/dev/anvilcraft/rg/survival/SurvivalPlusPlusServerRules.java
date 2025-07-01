@@ -103,7 +103,8 @@ public class SurvivalPlusPlusServerRules {
         categories = {
             SurvivalPlusPlus.MOD_ID,
             RollingGateCategories.SURVIVAL
-        }
+        },
+        serialize = "qnmd_lc"
     )
     public static int qnmdLC = -1;
 }
