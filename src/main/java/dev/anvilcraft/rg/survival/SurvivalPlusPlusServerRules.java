@@ -52,16 +52,16 @@ public class SurvivalPlusPlusServerRules {
     )
     public static boolean fastLeafDecay = false;
 
-//    // 大木桶
-//    @Rule(
-//        categories = {
-//            SurvivalPlusPlus.MOD_ID,
-//            RollingGateCategories.SURVIVAL,
-//            RollingGateCategories.EXPERIMENTAL
-//        }
-//    )
-//    public static boolean largeBarrel = false;
-//
+    // 大木桶
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL,
+            RollingGateCategories.EXPERIMENTAL
+        }
+    )
+    public static boolean largeBarrel = false;
+
     // 禁止苦力怕破坏
     @Rule(
         categories = {
