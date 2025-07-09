@@ -2,6 +2,7 @@ package dev.anvilcraft.rg.survival.mixin;
 
 import dev.anvilcraft.rg.survival.util.LargeBarrelUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BarrelBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -11,11 +12,15 @@ import net.neoforged.neoforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(BarrelBlockEntity.class)
 abstract class BarrelBlockEntityMixin extends RandomizableContainerBlockEntity implements IItemHandler {
     @Shadow
     public abstract int getContainerSize();
+
+    @Shadow
+    protected abstract void setItems(@NotNull NonNullList<ItemStack> items);
 
     protected BarrelBlockEntityMixin(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
@@ -39,6 +44,19 @@ abstract class BarrelBlockEntityMixin extends RandomizableContainerBlockEntity i
         return LargeBarrelUtil.getSecondBarrel(this.level, this.getBlockPos()).getItem(index - this.getContainerSize());
     }
 
+    @Unique
+    private void rg$setItem(int index, @NotNull ItemStack itemStack) {
+        if (!LargeBarrelUtil.isLargeBarrel(this.level, this.getBlockPos()) || this.level == null) {
+            this.setItem(index, itemStack);
+            return;
+        }
+        if (index < this.getContainerSize()) {
+            LargeBarrelUtil.getFirstBarrel(this.level, this.getBlockPos()).setItem(index, itemStack);
+        } else {
+            LargeBarrelUtil.getSecondBarrel(this.level, this.getBlockPos()).setItem(index - this.getContainerSize(), itemStack);
+        }
+    }
+
     @Override
     public @NotNull ItemStack insertItem(int index, @NotNull ItemStack itemStack, boolean simulate) {
         int slotLimit = this.getSlotLimit(index);
@@ -53,11 +71,7 @@ abstract class BarrelBlockEntityMixin extends RandomizableContainerBlockEntity i
             if (stackInSlot.isEmpty()) {
                 stackInSlot = itemStack.copy();
                 stackInSlot.setCount(insertedCount);
-                if (index < this.getContainerSize() && level != null) {
-                    LargeBarrelUtil.getFirstBarrel(this.level, this.getBlockPos()).setItem(index, stackInSlot);
-                } else if (level != null) {
-                    LargeBarrelUtil.getSecondBarrel(this.level, this.getBlockPos()).setItem(index - this.getContainerSize(), stackInSlot);
-                }
+                this.rg$setItem(index, stackInSlot);
             } else {
                 stackInSlot.setCount(insertedCount);
             }
