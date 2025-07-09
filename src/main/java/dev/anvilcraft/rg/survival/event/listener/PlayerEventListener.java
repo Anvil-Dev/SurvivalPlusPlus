@@ -8,6 +8,7 @@ import dev.anvilcraft.rg.survival.event.PlayerCanPlaceBlockItemEvent;
 import dev.anvilcraft.rg.survival.event.PlayerCanPlaceStandingAndWallBlockItemEvent;
 import dev.anvilcraft.rg.survival.event.PlayerDeathEvent;
 import dev.anvilcraft.rg.survival.mixin.BlockItemAccessor;
+import dev.anvilcraft.rg.survival.util.IPlayerData;
 import dev.anvilcraft.rg.survival.util.SimpleInGameCalculator;
 import dev.anvilcraft.rg.tools.TriConsumer;
 import net.minecraft.ChatFormatting;
@@ -24,11 +25,14 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID)
@@ -118,6 +122,32 @@ public class PlayerEventListener {
                 event.setCanPlace(true);
             }
         }
+    }
+
+    @SubscribeEvent
+    @SuppressWarnings("resource")
+    public static void onTick(PlayerTickEvent.@NotNull Pre event) {
+        if (SurvivalPlusPlusServerRules.easyBoneMeal < 0) return;
+        Player entity = event.getEntity();
+        Level level = entity.level();
+        if (level.isClientSide()) return;
+        if (!(entity instanceof IPlayerData data)) return;
+        boolean last = data.<Boolean>rg$getPlayerData("easy_bone_meal", false);
+        if (last) {
+            if (!entity.isShiftKeyDown()) data.rg$savePlayerData("easy_bone_meal", false);
+            return;
+        }
+        if (!entity.isShiftKeyDown()) return;
+        data.rg$savePlayerData("easy_bone_meal", true);
+        double chance = SurvivalPlusPlusServerRules.easyBoneMeal == 0 ? 1.0 : 1.0 / SurvivalPlusPlusServerRules.easyBoneMeal;
+        if (Math.random() > chance) return;
+        BlockPos onPos = entity.getOnPos();
+        BlockState state = level.getBlockState(onPos);
+        if (!state.is(Blocks.COMPOSTER)) return;
+        int value = state.getValue(ComposterBlock.LEVEL);
+        int nextValue = Math.min(value + 1, ComposterBlock.MAX_LEVEL);
+        if (nextValue <= value) return;
+        level.setBlock(onPos, state.setValue(ComposterBlock.LEVEL, nextValue), 3);
     }
 
     private static boolean canSpectatingPlace(

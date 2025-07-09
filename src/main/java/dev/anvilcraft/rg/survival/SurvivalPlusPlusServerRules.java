@@ -107,4 +107,13 @@ public class SurvivalPlusPlusServerRules {
         serialize = "qnmd_lc"
     )
     public static int qnmdLC = -1;
+
+    // 在堆肥桶中下蹲时有多少分之一的概率增加一级堆肥等级
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static int easyBoneMeal = -1;
 }

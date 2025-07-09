@@ -34,6 +34,9 @@
   "survival_plus_plus.rolling_gate.rule.qnmd_lc": "Set LC value",
   "survival_plus_plus.rolling_gate.rule.qnmd_lc.desc": "What is the height value for setting the LC value",
 
+  "survival_plus_plus.rolling_gate.rule.easy_bone_meal": "Easy Bone Meal",
+  "survival_plus_plus.rolling_gate.rule.easy_bone_meal.desc": "What is the one-in-how-many chance of increasing the composting level by one when crouching in a composter",
+
   "broadcast_death_position.message.position.hover": "Click Copy to clipboard",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "Player %s dies at %s!",

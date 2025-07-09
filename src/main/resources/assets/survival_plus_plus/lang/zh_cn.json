@@ -34,6 +34,9 @@
   "survival_plus_plus.rolling_gate.rule.qnmd_lc": "设置 LC 值",
   "survival_plus_plus.rolling_gate.rule.qnmd_lc.desc": "设置LC值为多少高度时的值",
 
+  "survival_plus_plus.rolling_gate.rule.easy_bone_meal": "简易骨粉",
+  "survival_plus_plus.rolling_gate.rule.easy_bone_meal.desc": "在堆肥桶中下蹲时有多少分之一的概率增加一级堆肥等级",
+
   "broadcast_death_position.message.position.hover": "点击复制到剪贴板",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "玩家 %s 死在了 %s！",
