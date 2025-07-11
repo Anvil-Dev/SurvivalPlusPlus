@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Debug(export = true)
 @Mixin(HopperBlockEntity.class)
-public class HopperBlockEntityMixin {
+abstract class HopperBlockEntityMixin {
     @Inject(
         method = "getBlockContainer",
         at = @At(

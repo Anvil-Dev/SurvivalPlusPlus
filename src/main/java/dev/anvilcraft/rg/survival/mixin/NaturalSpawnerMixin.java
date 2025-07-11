@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(NaturalSpawner.class)
-public class NaturalSpawnerMixin {
+abstract class NaturalSpawnerMixin {
     @Inject(method = "spawnCategoryForChunk", at = @At("HEAD"), cancellable = true)
     private static void spawnCategoryForChunk(MobCategory mobCategory, ServerLevel serverLevel, LevelChunk levelChunk, NaturalSpawner.SpawnPredicate spawnPredicate, NaturalSpawner.AfterSpawnCallback afterSpawnCallback, CallbackInfo ci) {
         if (SurvivalPlusPlusServerRules.qnmdLC < 0) return;

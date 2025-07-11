@@ -40,6 +40,9 @@
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert": "村民无视难度转化",
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert.desc": "村民无视难度转化为僵尸村民",
 
+  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased": "流浪商人收购",
+  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased.desc": "允许流浪商人收购部分物品",
+
   "broadcast_death_position.message.position.hover": "点击复制到剪贴板",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "玩家 %s 死在了 %s！",

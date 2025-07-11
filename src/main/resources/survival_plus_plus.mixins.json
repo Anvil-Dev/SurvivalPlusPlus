@@ -18,6 +18,7 @@
     "ServerPlayerMixin",
     "ShulkerBoxBlockEntityMixin",
     "StandingAndWallBlockItemMixin",
+    "WanderingTraderMixin",
     "ZombieMixin"
   ],
   "client": [

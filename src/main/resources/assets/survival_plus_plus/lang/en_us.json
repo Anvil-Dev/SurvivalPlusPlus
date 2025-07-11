@@ -40,6 +40,9 @@
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert": "Villagers Always Convert",
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert.desc": "Villagers ignore difficulty and transform into zombie villagers",
 
+  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased": "Wandering Trader Purchased",
+  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased.desc": "Wandering Trader are allowed to purchase certain items",
+
   "broadcast_death_position.message.position.hover": "Click Copy to clipboard",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "Player %s dies at %s!",
