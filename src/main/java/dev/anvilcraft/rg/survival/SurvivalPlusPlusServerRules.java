@@ -116,4 +116,14 @@ public class SurvivalPlusPlusServerRules {
         }
     )
     public static int easyBoneMeal = -1;
+
+    // 村民无视难度转化为僵尸村民
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static boolean villagersAlwaysConvert = false;
+
 }
