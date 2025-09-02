@@ -23,10 +23,10 @@ abstract class ExperienceOrbMixin extends Entity {
     protected abstract int repairPlayerItems(ServerPlayer player, int value);
 
     @Shadow
-    public int value;
+    private int count;
 
     @Shadow
-    private int count;
+    public abstract int getValue();
 
     @Inject(method = "playerTouch", at = @At(value = "TAIL"))
     private void addXP(Player player, CallbackInfo ci) {
@@ -35,7 +35,7 @@ abstract class ExperienceOrbMixin extends Entity {
         serverPlayer.takeXpDelay = 0;
         while (this.count > 0) {
             serverPlayer.take(this, 1);
-            int i = this.repairPlayerItems(serverPlayer, this.value);
+            int i = this.repairPlayerItems(serverPlayer, this.getValue());
             if (i > 0) player.giveExperiencePoints(i);
             --this.count;
         }
