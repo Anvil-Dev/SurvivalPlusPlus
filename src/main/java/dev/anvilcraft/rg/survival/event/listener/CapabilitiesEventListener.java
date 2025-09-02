@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID)
 public class CapabilitiesEventListener {
     @SuppressWarnings("unchecked")
     @SubscribeEvent

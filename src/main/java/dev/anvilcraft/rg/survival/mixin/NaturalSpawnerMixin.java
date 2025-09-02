@@ -16,17 +16,24 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(NaturalSpawner.class)
 abstract class NaturalSpawnerMixin {
     @Inject(method = "spawnCategoryForChunk", at = @At("HEAD"), cancellable = true)
-    private static void spawnCategoryForChunk(MobCategory mobCategory, ServerLevel serverLevel, LevelChunk levelChunk, NaturalSpawner.SpawnPredicate spawnPredicate, NaturalSpawner.AfterSpawnCallback afterSpawnCallback, CallbackInfo ci) {
+    private static void spawnCategoryForChunk(
+        MobCategory mobCategory,
+        ServerLevel serverLevel,
+        LevelChunk levelChunk,
+        NaturalSpawner.SpawnPredicate spawnPredicate,
+        NaturalSpawner.AfterSpawnCallback afterSpawnCallback,
+        CallbackInfo ci
+    ) {
         if (SurvivalPlusPlusServerRules.qnmdLC < 0) return;
         ChunkPos chunkPos = levelChunk.getPos();
         double chance = SurvivalPlusPlusServerRules.qnmdLC == 0 ? 1.0 : 1.0 / SurvivalPlusPlusServerRules.qnmdLC;
         int i = chunkPos.getMinBlockX() + serverLevel.random.nextInt(16);
         int j = chunkPos.getMinBlockZ() + serverLevel.random.nextInt(16);
         int k = levelChunk.getHeight(Heightmap.Types.WORLD_SURFACE, i, j) + 1;
-        for (int i1 = serverLevel.getMinBuildHeight(); i1 < k; ++i1) {
+        for (int i1 = serverLevel.getMinY(); i1 < k; ++i1) {
             if (serverLevel.random.nextDouble() > chance) continue;
             BlockPos blockPos = new BlockPos(i, i1, j);
-            if (blockPos.getY() < serverLevel.getMinBuildHeight() + 1) continue;
+            if (blockPos.getY() < serverLevel.getMinY() + 1) continue;
             NaturalSpawner.spawnCategoryForPosition(mobCategory, serverLevel, levelChunk, blockPos, spawnPredicate, afterSpawnCallback);
         }
         ci.cancel();

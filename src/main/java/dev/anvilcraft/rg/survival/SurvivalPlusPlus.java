@@ -1,9 +1,6 @@
 package dev.anvilcraft.rg.survival;
 
 import com.mojang.logging.LogUtils;
-import dev.anvilcraft.rg.api.RGAdditional;
-import dev.anvilcraft.rg.api.server.ServerRGRuleManager;
-import dev.anvilcraft.rg.api.server.TranslationUtil;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;

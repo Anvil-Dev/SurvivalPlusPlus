@@ -1,6 +1,6 @@
 package dev.anvilcraft.rg.survival.util;
 
-import net.minecraft.core.component.DataComponentPredicate;
+import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +21,7 @@ public class WanderingTraderPurchasedUtil {
             new ItemCost(
                 Items.POTION.builtInRegistryHolder(),
                 1,
-                DataComponentPredicate.builder()
+                DataComponentExactPredicate.builder()
                     .expect(DataComponents.POTION_CONTENTS, new PotionContents(Potions.WATER))
                     .build()
             ),

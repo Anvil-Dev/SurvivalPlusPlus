@@ -46,30 +46,18 @@ public class PlayerEventListener {
         if (server == null) return;
         PlayerList playerList = server.getPlayerList();
         Component pos = TranslationUtil.trans(
-            "broadcast_death_position.message.position",
-            player.getOnPos().getX(),
-            player.getOnPos().getY(),
-            player.getOnPos().getZ()
-        ).withStyle(
-            Style.EMPTY
-                .applyFormats(ChatFormatting.DARK_GREEN)
-                .withHoverEvent(
-                    new HoverEvent(
-                        HoverEvent.Action.SHOW_TEXT,
-                        TranslationUtil.trans("broadcast_death_position.message.position.hover")
-                    )
-                )
-                .withClickEvent(
-                    new ClickEvent(
-                        ClickEvent.Action.COPY_TO_CLIPBOARD,
-                        "/tp @s %s %s %s".formatted(
-                            player.getOnPos().getX(),
-                            player.getOnPos().getY(),
-                            player.getOnPos().getZ()
-                        )
-                    )
-                )
-        );
+                "broadcast_death_position.message.position",
+                player.getOnPos().getX(),
+                player.getOnPos().getY(),
+                player.getOnPos().getZ()
+            )
+            .withStyle(Style.EMPTY.applyFormats(ChatFormatting.DARK_GREEN)
+                .withHoverEvent(new HoverEvent.ShowText(TranslationUtil.trans("broadcast_death_position.message.position.hover")))
+                .withClickEvent(new ClickEvent.CopyToClipboard("/tp @s %s %s %s".formatted(
+                    player.getOnPos().getX(),
+                    player.getOnPos().getY(),
+                    player.getOnPos().getZ()
+                ))));
         Component component = TranslationUtil.trans("broadcast_death_position.message", player.getDisplayName(), pos);
         playerList.broadcastSystemMessage(component, false);
     }
@@ -96,9 +84,8 @@ public class PlayerEventListener {
         Player player = context.getPlayer();
         CollisionContext collisioncontext = player == null ? CollisionContext.empty() : CollisionContext.of(player);
         boolean flag = (
-            !((BlockItemAccessor) item).invokeMustSurvive() ||
-                state.canSurvive(context.getLevel(), context.getClickedPos())
-        ) && PlayerEventListener.canSpectatingPlace(
+                           !((BlockItemAccessor) item).invokeMustSurvive() || state.canSurvive(context.getLevel(), context.getClickedPos())
+                       ) && PlayerEventListener.canSpectatingPlace(
             context.getLevel(),
             state,
             context.getClickedPos(),
@@ -151,7 +138,8 @@ public class PlayerEventListener {
     }
 
     private static boolean canSpectatingPlace(
-        Level world, BlockState state,
+        Level world,
+        BlockState state,
         BlockPos pos,
         CollisionContext context,
         @NotNull BlockPlaceContext contextOuter
