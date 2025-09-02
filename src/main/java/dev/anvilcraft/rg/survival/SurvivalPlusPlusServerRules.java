@@ -134,4 +134,13 @@ public class SurvivalPlusPlusServerRules {
         }
     )
     public static boolean wanderingTraderPurchased = false;
+
+    // 快乐恶魂在云中加速
+    @Rule(
+        categories = {
+            SurvivalPlusPlus.MOD_ID,
+            RollingGateCategories.SURVIVAL
+        }
+    )
+    public static boolean happyGhastAccelerateInCloud = false;
 }

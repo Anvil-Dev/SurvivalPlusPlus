@@ -12,6 +12,8 @@
     "BlockItemAccessor",
     "BlockItemMixin",
     "ExperienceOrbMixin",
+    "GhastMoveControlMixin",
+    "HappyGhastMixin",
     "HopperBlockEntityMixin",
     "NaturalSpawnerMixin",
     "PlayerMixin",
@@ -22,7 +24,8 @@
     "ZombieMixin"
   ],
   "client": [
-    "LevelRendererMixin"
+    "LevelRendererMixin",
+    "LocalPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
