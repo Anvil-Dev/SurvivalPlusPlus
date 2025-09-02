@@ -24,7 +24,7 @@ abstract class HappyGhastMixin extends LivingEntity {
 
     @Inject(method = "getRiddenInput", at = @At("RETURN"), cancellable = true)
     private void getRiddenInput(Player player, Vec3 vec3, @NotNull CallbackInfoReturnable<Vec3> cir) {
-        if (SurvivalPlusPlusClientRules.betterHappyGhastControl) return;
+        if (!SurvivalPlusPlusClientRules.betterHappyGhastControl) return;
         MobEffectInstance effect = this.getEffect(MobEffects.SPEED);
         double scale = 1.0D;
         if (effect != null) {
