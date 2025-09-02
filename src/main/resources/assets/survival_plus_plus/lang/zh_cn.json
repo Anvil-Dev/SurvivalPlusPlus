@@ -53,9 +53,9 @@
   "simple_in_game_calculator.message": "=%s",
   "simple_in_game_calculator.message.illegal_expression": "非法的表达式: %s",
 
-  "rolling_gate.configuration.survival_plus_plus": "Survival++",
+  "rolling_gate.configuration.survival_plus_plus": "生存++",
   "rolling_gate.configuration.betterHappyGhastControl": "更好的快乐恶魂控制",
-  "rolling_gate.configuration.survival_plus_plus.button": "Survival++",
-  "rolling_gate.configuration.survival_plus_plus.tooltip": "Survival++",
+  "rolling_gate.configuration.survival_plus_plus.button": "生存++",
+  "rolling_gate.configuration.survival_plus_plus.tooltip": "生存++",
   "rolling_gate.configuration.betterHappyGhastControl.tooltip": "使用W、A、S、D控制前后左右移动。按下Ctrl键下降，按空格键上升。"
 }
