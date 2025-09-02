@@ -43,10 +43,19 @@
   "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased": "Wandering Trader Purchased",
   "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased.desc": "Wandering Trader are allowed to purchase certain items",
 
+  "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud": "happyGhastAccelerateInCloud",
+  "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud.desc": "HappyGhast accelerate in cloud",
+
   "broadcast_death_position.message.position.hover": "Click Copy to clipboard",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "Player %s dies at %s!",
 
   "simple_in_game_calculator.message": "=%s",
-  "simple_in_game_calculator.message.illegal_expression": "Illegal expression: %s"
+  "simple_in_game_calculator.message.illegal_expression": "Illegal expression: %s",
+
+  "rolling_gate.configuration.survival_plus_plus": "Survival++",
+  "rolling_gate.configuration.betterHappyGhastControl": "Better HappyGhast Control",
+  "rolling_gate.configuration.survival_plus_plus.button": "Survival++",
+  "rolling_gate.configuration.survival_plus_plus.tooltip": "Survival++",
+  "rolling_gate.configuration.betterHappyGhastControl.tooltip": "Use W/A/S/D to control forward, backward, left, and right. Press Ctrl to descend and Space to ascend."
 }

@@ -43,10 +43,19 @@
   "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased": "流浪商人收购",
   "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased.desc": "允许流浪商人收购部分物品",
 
+  "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud": "快乐恶魂在云中加速",
+  "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud.desc": "快乐恶魂在云中加速",
+
   "broadcast_death_position.message.position.hover": "点击复制到剪贴板",
   "broadcast_death_position.message.position": "[%s, %s, %s]",
   "broadcast_death_position.message": "玩家 %s 死在了 %s！",
 
   "simple_in_game_calculator.message": "=%s",
-  "simple_in_game_calculator.message.illegal_expression": "非法的表达式: %s"
+  "simple_in_game_calculator.message.illegal_expression": "非法的表达式: %s",
+
+  "rolling_gate.configuration.survival_plus_plus": "Survival++",
+  "rolling_gate.configuration.betterHappyGhastControl": "更好的快乐恶魂控制",
+  "rolling_gate.configuration.survival_plus_plus.button": "Survival++",
+  "rolling_gate.configuration.survival_plus_plus.tooltip": "Survival++",
+  "rolling_gate.configuration.betterHappyGhastControl.tooltip": "使用W、A、S、D控制前后左右移动。按下Ctrl键下降，按空格键上升。"
 }
