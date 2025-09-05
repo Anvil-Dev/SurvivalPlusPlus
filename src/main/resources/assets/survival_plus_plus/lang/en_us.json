@@ -40,9 +40,6 @@
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert": "Villagers Always Convert",
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert.desc": "Villagers ignore difficulty and transform into zombie villagers",
 
-  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased": "Wandering Trader Purchased",
-  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased.desc": "Wandering Trader are allowed to purchase certain items",
-
   "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud": "happyGhastAccelerateInCloud",
   "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud.desc": "HappyGhast accelerate in cloud",
 

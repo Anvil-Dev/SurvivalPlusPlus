@@ -126,15 +126,6 @@ public class SurvivalPlusPlusServerRules {
     )
     public static boolean villagersAlwaysConvert = false;
 
-    // 流浪商人收购
-    @Rule(
-        categories = {
-            SurvivalPlusPlus.MOD_ID,
-            RollingGateCategories.SURVIVAL
-        }
-    )
-    public static boolean wanderingTraderPurchased = false;
-
     // 快乐恶魂在云中加速
     @Rule(
         categories = {

@@ -40,9 +40,6 @@
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert": "村民无视难度转化",
   "survival_plus_plus.rolling_gate.rule.villagers_always_convert.desc": "村民无视难度转化为僵尸村民",
 
-  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased": "流浪商人收购",
-  "survival_plus_plus.rolling_gate.rule.wandering_trader_purchased.desc": "允许流浪商人收购部分物品",
-
   "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud": "快乐恶魂在云中加速",
   "survival_plus_plus.rolling_gate.rule.happy_ghast_accelerate_in_cloud.desc": "快乐恶魂在云中加速",
 
