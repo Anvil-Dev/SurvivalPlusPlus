@@ -2,6 +2,7 @@ package dev.anvilcraft.rg.survival.event.listener;
 
 import dev.anvilcraft.rg.survival.SurvivalPlusPlus;
 import dev.anvilcraft.rg.survival.SurvivalPlusPlusServerRules;
+import dev.anvilcraft.rg.survival.util.FastLeafDecayCallback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.MinecraftServer;
@@ -34,10 +35,11 @@ public class BlockEventListener {
             BlockState state2 = accessor.getBlockState(offset);
             if (!state2.is(BlockTags.LEAVES)) continue;
             String id = "%s:%s".formatted(accessor.dimensionType(), offset);
-            timerqueue.schedule(id, ((ServerLevel) accessor).getGameTime() + 1, (minecraftServer, timerQueue, l) -> {
-                if (!state2.is(BlockTags.LEAVES)) return;
-                state2.randomTick((ServerLevel) accessor, offset, accessor.getRandom());
-            });
+            timerqueue.schedule(
+                id,
+                ((ServerLevel) accessor).getGameTime() + 1,
+                new FastLeafDecayCallback(((ServerLevel) accessor).dimension(), state2, offset)
+            );
         }
     }
 }
