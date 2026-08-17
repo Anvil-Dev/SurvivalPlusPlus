@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.anvilcraft.rg.survival.SurvivalPlusPlusServerRules;
 import dev.anvilcraft.rg.survival.util.LargeBarrelUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -54,7 +55,7 @@ abstract class BarrelBlockMixin {
         at = @At("HEAD"),
         cancellable = true
     )
-    private void getAnalogOutputSignal(BlockState blockState, @NotNull Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
+    private void getAnalogOutputSignal(BlockState blockState, @NotNull Level level, BlockPos pos, Direction direction, CallbackInfoReturnable<Integer> cir) {
         if (!SurvivalPlusPlusServerRules.largeBarrel) return;
         BlockEntity entity = level.getBlockEntity(pos);
         if (!(entity instanceof BarrelBlockEntity barrelBlockEntity)) return;
