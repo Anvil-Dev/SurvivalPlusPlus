@@ -3,6 +3,8 @@ package dev.anvilcraft.rg.survival.event.listener;
 import dev.anvilcraft.rg.survival.SurvivalPlusPlus;
 import dev.anvilcraft.rg.survival.SurvivalPlusPlusServerRules;
 import dev.anvilcraft.rg.survival.event.EntityGetPistonBehaviourEvent;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -34,17 +36,17 @@ public class EntityEventListener {
         if (!event.canGrief()) return;
         Entity entity = event.getEntity();
         EntityType<?> type = entity.getType();
-        if (type == EntityType.CREEPER && SurvivalPlusPlusServerRules.antiCreeperGriefing) {
+        if (type == BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.withDefaultNamespace("creeper")) && SurvivalPlusPlusServerRules.antiCreeperGriefing) {
             event.setCanGrief(false);
-        } else if (type == EntityType.GHAST && SurvivalPlusPlusServerRules.antiGhastGriefing) {
+        } else if (type == BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.withDefaultNamespace("ghast")) && SurvivalPlusPlusServerRules.antiGhastGriefing) {
             event.setCanGrief(false);
         } else if (entity instanceof LargeFireball fireball && SurvivalPlusPlusServerRules.antiGhastGriefing) {
-            if (fireball.getOwner() != null && fireball.getOwner().getType() == EntityType.GHAST) {
+            if (fireball.getOwner() != null && fireball.getOwner().getType() == BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.withDefaultNamespace("ghast"))) {
                 event.setCanGrief(false);
             }
-        } else if (type == EntityType.ENDERMAN && SurvivalPlusPlusServerRules.antiEnderManGriefing) {
+        } else if (type == BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.withDefaultNamespace("enderman")) && SurvivalPlusPlusServerRules.antiEnderManGriefing) {
             event.setCanGrief(false);
-        } else if (type == EntityType.ENDER_DRAGON && SurvivalPlusPlusServerRules.antiEnderDragonGriefing) {
+        } else if (type == BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.withDefaultNamespace("ender_dragon")) && SurvivalPlusPlusServerRules.antiEnderDragonGriefing) {
             event.setCanGrief(false);
         }
     }
