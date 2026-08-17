@@ -1,6 +1,5 @@
 package dev.anvilcraft.rg.survival.mixin;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import dev.anvilcraft.rg.survival.util.LargeBarrelUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
@@ -20,19 +19,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 abstract class HopperBlockEntityMixin {
     @Inject(
         method = "getBlockContainer",
-        at = @At(
-            value = "RETURN",
-            ordinal = 1
-        ),
+        at = @At("HEAD"),
         cancellable = true
     )
     private static void getBlockContainer(
         Level level,
         BlockPos pos,
         BlockState state,
-        CallbackInfoReturnable<Container> cir,
-        @Local BlockEntity entity
+        CallbackInfoReturnable<Container> cir
     ) {
+        BlockEntity entity = level.getBlockEntity(pos);
         if (!(entity instanceof BarrelBlockEntity barrelBlockEntity)) return;
         if (!LargeBarrelUtil.isLargeBarrel(level, pos)) return;
         Container container = LargeBarrelUtil.combine(barrelBlockEntity, level, pos)
