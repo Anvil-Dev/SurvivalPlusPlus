@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 abstract class GhastMoveControlMixin {
     @Shadow
     @Final
-    private Mob ghast;
+    private Mob mob;
 
     @WrapOperation(
         method = "tick",
@@ -28,9 +28,9 @@ abstract class GhastMoveControlMixin {
         if (!SurvivalPlusPlusServerRules.happyGhastAccelerateInCloud) {
             return original.call(instance, holder);
         }
-        MobEffectInstance effect = this.ghast.getEffect(MobEffects.SPEED);
+        MobEffectInstance effect = this.mob.getEffect(MobEffects.SPEED);
         int amplifier = 0;
-        if (this.ghast.isInClouds()) amplifier += 3;
+        if (this.mob.isInClouds()) amplifier += 3;
         if (effect != null) amplifier += effect.getAmplifier();
         return original.call(instance, holder) * (1.0D + 0.2D * amplifier);
     }
