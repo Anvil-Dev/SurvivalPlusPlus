@@ -7,6 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.CompoundContainer;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.ContainerUser;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -28,17 +29,17 @@ public class LargeBarrelUtil {
         public @NotNull Optional<Container> acceptDouble(@NotNull BarrelBlockEntity entity, @NotNull BarrelBlockEntity entity1) {
             return Optional.of(new CompoundContainer(entity, entity1) {
                 @Override
-                public void startOpen(@NotNull Player player) {
-                    super.startOpen(player);
-                    entity.startOpen(player);
-                    entity1.startOpen(player);
+                public void startOpen(@NotNull ContainerUser user) {
+                    super.startOpen(user);
+                    entity.startOpen(user);
+                    entity1.startOpen(user);
                 }
 
                 @Override
-                public void stopOpen(@NotNull Player player) {
-                    super.stopOpen(player);
-                    entity.stopOpen(player);
-                    entity1.stopOpen(player);
+                public void stopOpen(@NotNull ContainerUser user) {
+                    super.stopOpen(user);
+                    entity.stopOpen(user);
+                    entity1.stopOpen(user);
                 }
             });
         }

@@ -5,10 +5,13 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.TransactionContext;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Unique;
 
-public interface ILargeBarrel extends Container, IItemHandler {
+public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<ItemResource> {
     LevelAccessor rg$getLevel();
 
     BlockPos rg$getBlockPos();
@@ -90,5 +93,45 @@ public interface ILargeBarrel extends Container, IItemHandler {
         if (stackInSlot.isEmpty()) return true;
         if (!ItemStack.isSameItemSameComponents(stackInSlot, itemStack)) return false;
         return stackInSlot.getCount() < this.getSlotLimit(index);
+    }
+
+    @Override
+    default int size() {
+        return this.getSlots();
+    }
+
+    @Override
+    default @NotNull ItemResource getResource(int index) {
+        ItemStack stack = this.getStackInSlot(index);
+        return stack.isEmpty() ? ItemResource.EMPTY : ItemResource.of(stack);
+    }
+
+    @Override
+    default long getAmountAsLong(int index) {
+        return this.getStackInSlot(index).getCount();
+    }
+
+    @Override
+    default long getCapacityAsLong(int index, @NotNull ItemResource resource) {
+        return this.getSlotLimit(index);
+    }
+
+    @Override
+    default boolean isValid(int index, @NotNull ItemResource resource) {
+        return this.isItemValid(index, resource.toStack(1));
+    }
+
+    @Override
+    default int insert(int index, @NotNull ItemResource resource, int amount, @NotNull TransactionContext transaction) {
+        if (amount <= 0 || !this.isValid(index, resource)) return 0;
+        ItemStack remainder = this.insertItem(index, resource.toStack(amount), false);
+        return amount - remainder.getCount();
+    }
+
+    @Override
+    default int extract(int index, @NotNull ItemResource resource, int amount, @NotNull TransactionContext transaction) {
+        ItemStack stack = this.getStackInSlot(index);
+        if (amount <= 0 || !resource.matches(stack)) return 0;
+        return this.extractItem(index, amount, false).getCount();
     }
 }

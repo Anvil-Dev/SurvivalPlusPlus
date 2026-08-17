@@ -42,7 +42,7 @@ public class PlayerEventListener {
         if (!SurvivalPlusPlusServerRules.broadcastDeathPosition) return;
         Player entity = event.getEntity();
         if (!(entity instanceof ServerPlayer player)) return;
-        MinecraftServer server = player.getServer();
+        MinecraftServer server = player.level().getServer();
         if (server == null) return;
         PlayerList playerList = server.getPlayerList();
         Component pos = TranslationUtil.trans(
@@ -166,7 +166,7 @@ public class PlayerEventListener {
         String string = component.getString();
         if (!string.startsWith(prefix)) return;
         string = string.substring(prefix.length());
-        MinecraftServer server = player.getServer();
+        MinecraftServer server = player.level().getServer();
         handle.accept(server, player, string);
     }
 }
