@@ -4,26 +4,23 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
-import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.transaction.TransactionContext;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Unique;
 
-public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<ItemResource> {
+public interface ILargeBarrel extends Container, ResourceHandler<ItemResource> {
     LevelAccessor rg$getLevel();
 
     BlockPos rg$getBlockPos();
 
-    @Override
     default int getSlots() {
         int size = this.getContainerSize();
         if (LargeBarrelUtil.isLargeBarrel(this.rg$getLevel(), this.rg$getBlockPos())) return size * 2;
         return size;
     }
 
-    @Override
     default @NotNull ItemStack getStackInSlot(int index) {
         if (!LargeBarrelUtil.isLargeBarrel(this.rg$getLevel(), this.rg$getBlockPos()) || this.rg$getLevel() == null) {
             return this.getItem(index);
@@ -47,7 +44,6 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
         }
     }
 
-    @Override
     default @NotNull ItemStack insertItem(int index, @NotNull ItemStack itemStack, boolean simulate) {
         int slotLimit = this.getSlotLimit(index);
         ItemStack copy = itemStack.copy();
@@ -69,7 +65,6 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
         return copy;
     }
 
-    @Override
     default @NotNull ItemStack extractItem(int index, int count, boolean simulate) {
         ItemStack stackInSlot = this.getStackInSlot(index);
         ItemStack copy = stackInSlot.copy();
@@ -81,13 +76,11 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
         return copy;
     }
 
-    @Override
     default int getSlotLimit(int index) {
         ItemStack stackInSlot = this.getStackInSlot(index);
         return stackInSlot.isEmpty() ? this.getMaxStackSize() : this.getMaxStackSize(stackInSlot);
     }
 
-    @Override
     default boolean isItemValid(int index, @NotNull ItemStack itemStack) {
         ItemStack stackInSlot = this.getStackInSlot(index);
         if (stackInSlot.isEmpty()) return true;

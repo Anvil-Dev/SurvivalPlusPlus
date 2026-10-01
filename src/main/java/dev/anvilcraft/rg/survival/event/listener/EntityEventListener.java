@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 public class EntityEventListener {
     @SubscribeEvent
     public static void onGetEntityPistonBehaviour(@NotNull EntityGetPistonBehaviourEvent event) {
-        if (event.getReaction() == PushReaction.IGNORE) return;
+        if (event.getReaction() == PushReaction.IGNORE_ENTITY) return;
         Entity entity = event.getEntity();
         if (
             SurvivalPlusPlusServerRules.creativeNoClip
@@ -27,7 +27,7 @@ public class EntityEventListener {
                 && player.isCreative()
                 && player.getAbilities().flying
         ) {
-            event.setReaction(PushReaction.IGNORE);
+            event.setReaction(PushReaction.IGNORE_ENTITY);
         }
     }
 
