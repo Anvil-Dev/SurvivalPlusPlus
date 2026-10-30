@@ -9,7 +9,6 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +37,7 @@ public class WanderingTraderPurchasedUtil {
         new Offer(new ItemCost(Items.HAY_BLOCK, 1), Optional.empty(), new ItemStack(Items.EMERALD, 1), 2, 5, 1)
     );
 
-    public static MerchantOffer @NotNull [] getRandomTrades(@NotNull RandomSource random) {
+    public static MerchantOffer [] getRandomTrades(RandomSource random) {
         int trade1 = random.nextInt(trades.size());
         int trade2 = random.nextInt(trades.size());
         while (trade1 == trade2) {
@@ -51,7 +50,7 @@ public class WanderingTraderPurchasedUtil {
     }
 
     record Offer(ItemCost baseCostA, Optional<ItemCost> costB, ItemStack result, int maxUses, int xp, float priceMultiplier) {
-        public @NotNull MerchantOffer toOffer() {
+        public MerchantOffer toOffer() {
             return new MerchantOffer(baseCostA, costB, result, maxUses, xp, priceMultiplier);
         }
     }

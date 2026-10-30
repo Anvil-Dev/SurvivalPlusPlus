@@ -15,8 +15,7 @@ import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.entity.BarrelBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -36,7 +35,7 @@ abstract class BarrelBlockMixin {
     private @Nullable OptionalInt getMenuProvider(
         Player instance,
         MenuProvider menu,
-        @NotNull Operation<OptionalInt> original
+        Operation<OptionalInt> original
     ) {
         OptionalInt result = original.call(instance, menu);
         if (!SurvivalPlusPlusServerRules.largeBarrel) return result;
@@ -55,7 +54,7 @@ abstract class BarrelBlockMixin {
         at = @At("HEAD"),
         cancellable = true
     )
-    private void getAnalogOutputSignal(BlockState blockState, @NotNull Level level, BlockPos pos, Direction direction, CallbackInfoReturnable<Integer> cir) {
+    private void getAnalogOutputSignal(BlockState blockState, Level level, BlockPos pos, Direction direction, CallbackInfoReturnable<Integer> cir) {
         if (!SurvivalPlusPlusServerRules.largeBarrel) return;
         BlockEntity entity = level.getBlockEntity(pos);
         if (!(entity instanceof BarrelBlockEntity barrelBlockEntity)) return;

@@ -8,7 +8,6 @@ import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.transaction.TransactionContext;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Unique;
 
 public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<ItemResource> {
@@ -24,7 +23,7 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
     }
 
     @Override
-    default @NotNull ItemStack getStackInSlot(int index) {
+    default ItemStack getStackInSlot(int index) {
         if (!LargeBarrelUtil.isLargeBarrel(this.rg$getLevel(), this.rg$getBlockPos()) || this.rg$getLevel() == null) {
             return this.getItem(index);
         }
@@ -35,7 +34,7 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
     }
 
     @Unique
-    default void rg$setItem(int index, @NotNull ItemStack itemStack) {
+    default void rg$setItem(int index, ItemStack itemStack) {
         if (!LargeBarrelUtil.isLargeBarrel(this.rg$getLevel(), this.rg$getBlockPos()) || this.rg$getLevel() == null) {
             this.setItem(index, itemStack);
             return;
@@ -48,7 +47,7 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
     }
 
     @Override
-    default @NotNull ItemStack insertItem(int index, @NotNull ItemStack itemStack, boolean simulate) {
+    default ItemStack insertItem(int index, ItemStack itemStack, boolean simulate) {
         int slotLimit = this.getSlotLimit(index);
         ItemStack copy = itemStack.copy();
         if (!this.isItemValid(index, copy)) return copy;
@@ -70,7 +69,7 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
     }
 
     @Override
-    default @NotNull ItemStack extractItem(int index, int count, boolean simulate) {
+    default ItemStack extractItem(int index, int count, boolean simulate) {
         ItemStack stackInSlot = this.getStackInSlot(index);
         ItemStack copy = stackInSlot.copy();
         int extractedCount = Math.min(stackInSlot.getCount(), count);
@@ -88,7 +87,7 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
     }
 
     @Override
-    default boolean isItemValid(int index, @NotNull ItemStack itemStack) {
+    default boolean isItemValid(int index, ItemStack itemStack) {
         ItemStack stackInSlot = this.getStackInSlot(index);
         if (stackInSlot.isEmpty()) return true;
         if (!ItemStack.isSameItemSameComponents(stackInSlot, itemStack)) return false;
@@ -101,7 +100,7 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
     }
 
     @Override
-    default @NotNull ItemResource getResource(int index) {
+    default ItemResource getResource(int index) {
         ItemStack stack = this.getStackInSlot(index);
         return stack.isEmpty() ? ItemResource.EMPTY : ItemResource.of(stack);
     }
@@ -112,24 +111,24 @@ public interface ILargeBarrel extends Container, IItemHandler, ResourceHandler<I
     }
 
     @Override
-    default long getCapacityAsLong(int index, @NotNull ItemResource resource) {
+    default long getCapacityAsLong(int index, ItemResource resource) {
         return this.getSlotLimit(index);
     }
 
     @Override
-    default boolean isValid(int index, @NotNull ItemResource resource) {
+    default boolean isValid(int index, ItemResource resource) {
         return this.isItemValid(index, resource.toStack(1));
     }
 
     @Override
-    default int insert(int index, @NotNull ItemResource resource, int amount, @NotNull TransactionContext transaction) {
+    default int insert(int index, ItemResource resource, int amount, TransactionContext transaction) {
         if (amount <= 0 || !this.isValid(index, resource)) return 0;
         ItemStack remainder = this.insertItem(index, resource.toStack(amount), false);
         return amount - remainder.getCount();
     }
 
     @Override
-    default int extract(int index, @NotNull ItemResource resource, int amount, @NotNull TransactionContext transaction) {
+    default int extract(int index, ItemResource resource, int amount, TransactionContext transaction) {
         ItemStack stack = this.getStackInSlot(index);
         if (amount <= 0 || !resource.matches(stack)) return 0;
         return this.extractItem(index, amount, false).getCount();

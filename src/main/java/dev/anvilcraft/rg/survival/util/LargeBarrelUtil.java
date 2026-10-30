@@ -19,24 +19,23 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoubleBlockCombiner;
 import net.minecraft.world.level.block.entity.BarrelBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 
 public class LargeBarrelUtil {
     public static final DoubleBlockCombiner.Combiner<BarrelBlockEntity, Optional<Container>> CONTAINER_COMBINER = new DoubleBlockCombiner.Combiner<>() {
-        public @NotNull Optional<Container> acceptDouble(@NotNull BarrelBlockEntity entity, @NotNull BarrelBlockEntity entity1) {
+        public Optional<Container> acceptDouble(BarrelBlockEntity entity, BarrelBlockEntity entity1) {
             return Optional.of(new CompoundContainer(entity, entity1) {
                 @Override
-                public void startOpen(@NotNull ContainerUser user) {
+                public void startOpen(ContainerUser user) {
                     super.startOpen(user);
                     entity.startOpen(user);
                     entity1.startOpen(user);
                 }
 
                 @Override
-                public void stopOpen(@NotNull ContainerUser user) {
+                public void stopOpen(ContainerUser user) {
                     super.stopOpen(user);
                     entity.stopOpen(user);
                     entity1.stopOpen(user);
@@ -44,21 +43,21 @@ public class LargeBarrelUtil {
             });
         }
 
-        public @NotNull Optional<Container> acceptSingle(@NotNull BarrelBlockEntity entity) {
+        public Optional<Container> acceptSingle(BarrelBlockEntity entity) {
             return Optional.of(entity);
         }
 
-        public @NotNull Optional<Container> acceptNone() {
+        public Optional<Container> acceptNone() {
             return Optional.empty();
         }
     };
     public static final DoubleBlockCombiner.Combiner<BarrelBlockEntity, Optional<MenuProvider>> MENU_PROVIDER_COMBINER = new DoubleBlockCombiner.Combiner<>() {
-        public @NotNull Optional<MenuProvider> acceptDouble(final @NotNull BarrelBlockEntity entity, final @NotNull BarrelBlockEntity entity1) {
+        public Optional<MenuProvider> acceptDouble(final BarrelBlockEntity entity, final BarrelBlockEntity entity1) {
             final Container container = CONTAINER_COMBINER.acceptDouble(entity, entity1).orElse(null);
             return Optional.of(new MenuProvider() {
                 @Nullable
                 @Override
-                public AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, @NotNull Player player) {
+                public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
                     if (entity.canOpen(player) && entity1.canOpen(player)) {
                         entity.unpackLootTable(inventory.player);
                         entity1.unpackLootTable(inventory.player);
@@ -70,7 +69,7 @@ public class LargeBarrelUtil {
                 }
 
                 @Override
-                public @NotNull Component getDisplayName() {
+                public Component getDisplayName() {
                     if (entity.hasCustomName()) {
                         return entity.getDisplayName();
                     } else {
@@ -80,11 +79,11 @@ public class LargeBarrelUtil {
             });
         }
 
-        public @NotNull Optional<MenuProvider> acceptSingle(@NotNull BarrelBlockEntity entity) {
+        public Optional<MenuProvider> acceptSingle(BarrelBlockEntity entity) {
             return Optional.of(entity);
         }
 
-        public @NotNull Optional<MenuProvider> acceptNone() {
+        public Optional<MenuProvider> acceptNone() {
             return Optional.empty();
         }
     };
@@ -101,7 +100,7 @@ public class LargeBarrelUtil {
         return state1.getValue(BarrelBlock.FACING).equals(opposite);
     }
 
-    public static BarrelBlockEntity getFirstBarrel(@NotNull LevelAccessor level, BlockPos pos) {
+    public static BarrelBlockEntity getFirstBarrel(LevelAccessor level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         Direction value = state.getValue(BarrelBlock.FACING);
         if (value == Direction.NORTH || value == Direction.EAST || value == Direction.UP) {
@@ -111,7 +110,7 @@ public class LargeBarrelUtil {
         return (BarrelBlockEntity) level.getBlockEntity(relative);
     }
 
-    public static BarrelBlockEntity getSecondBarrel(@NotNull LevelAccessor level, BlockPos pos) {
+    public static BarrelBlockEntity getSecondBarrel(LevelAccessor level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         Direction value = state.getValue(BarrelBlock.FACING);
         if (value == Direction.SOUTH || value == Direction.WEST || value == Direction.DOWN) {
@@ -121,7 +120,7 @@ public class LargeBarrelUtil {
         return (BarrelBlockEntity) level.getBlockEntity(relative);
     }
 
-    public static DoubleBlockCombiner.@NotNull NeighborCombineResult<? extends BarrelBlockEntity> combine(BarrelBlockEntity entity, Level level, BlockPos pos) {
+    public static DoubleBlockCombiner.NeighborCombineResult<? extends BarrelBlockEntity> combine(BarrelBlockEntity entity, Level level, BlockPos pos) {
         if (!LargeBarrelUtil.isLargeBarrel(level, pos)) {
             return new DoubleBlockCombiner.NeighborCombineResult.Single<>(entity);
         }

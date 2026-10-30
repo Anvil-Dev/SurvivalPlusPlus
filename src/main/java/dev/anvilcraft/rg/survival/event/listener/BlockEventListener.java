@@ -19,12 +19,11 @@ import net.minecraft.world.level.timers.TimerQueue;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID)
 public class BlockEventListener {
     @SubscribeEvent
-    public static void onNotifyNeighbors(@NotNull BlockEvent.NeighborNotifyEvent event) {
+    public static void onNotifyNeighbors(BlockEvent.NeighborNotifyEvent event) {
         if (!SurvivalPlusPlusServerRules.fastLeafDecay) return;
         LevelAccessor accessor = event.getLevel();
         if (accessor.isClientSide()) return;
@@ -54,7 +53,7 @@ public class BlockEventListener {
         BlockPos offset
     ) implements TimerCallback<MinecraftServer> {
         @Override
-        public void handle(@NotNull MinecraftServer server, @NotNull TimerQueue<MinecraftServer> queue, long l) {
+        public void handle(MinecraftServer server, TimerQueue<MinecraftServer> queue, long l) {
             if (!this.state().is(BlockTags.LEAVES)) return;
             ServerLevel level = server.getLevel(this.dimension());
             if (level == null) return;
@@ -68,7 +67,7 @@ public class BlockEventListener {
         ).apply(instance, FastLeafDecayCallback::new));
 
         @Override
-        public @NotNull MapCodec<FastLeafDecayCallback> codec() {
+        public MapCodec<FastLeafDecayCallback> codec() {
             return FastLeafDecayCallback.CODEC;
         }
     }

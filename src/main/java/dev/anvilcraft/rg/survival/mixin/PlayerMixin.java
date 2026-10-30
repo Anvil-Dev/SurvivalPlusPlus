@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.anvilcraft.rg.survival.SurvivalPlusPlusServerRules;
 import dev.anvilcraft.rg.survival.util.IPlayerData;
 import net.minecraft.world.entity.player.Player;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,7 +29,7 @@ abstract class PlayerMixin implements IPlayerData {
             ordinal = 0
         )
     )
-    private boolean modifyIsSpectator(Player instance, @NotNull Operation<Boolean> original) {
+    private boolean modifyIsSpectator(Player instance, Operation<Boolean> original) {
         Player player = (Player) (Object) this;
         return original.call(instance) || (SurvivalPlusPlusServerRules.creativeNoClip && player.isCreative() && player.getAbilities().flying);
     }

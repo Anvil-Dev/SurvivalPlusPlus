@@ -6,17 +6,16 @@ import dev.anvilcraft.rg.survival.event.EntityGetPistonBehaviourEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.LargeFireball;
+import net.minecraft.world.entity.projectile.hurtingprojectile.LargeFireball;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
-import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID)
 public class EntityEventListener {
     @SubscribeEvent
-    public static void onGetEntityPistonBehaviour(@NotNull EntityGetPistonBehaviourEvent event) {
+    public static void onGetEntityPistonBehaviour(EntityGetPistonBehaviourEvent event) {
         if (event.getReaction() == PushReaction.IGNORE) return;
         Entity entity = event.getEntity();
         if (
@@ -30,7 +29,7 @@ public class EntityEventListener {
     }
 
     @SubscribeEvent
-    public static void onMobGriefing(@NotNull EntityMobGriefingEvent event) {
+    public static void onMobGriefing(EntityMobGriefingEvent event) {
         if (!event.canGrief()) return;
         Entity entity = event.getEntity();
         EntityType<?> type = entity.getType();

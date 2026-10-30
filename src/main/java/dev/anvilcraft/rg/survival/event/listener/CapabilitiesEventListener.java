@@ -9,12 +9,11 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.item.ItemResource;
-import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID)
 public class CapabilitiesEventListener {
     @SubscribeEvent
-    public static void registerCapabilities(final @NotNull RegisterCapabilitiesEvent event) {
+    public static void registerCapabilities(final RegisterCapabilitiesEvent event) {
         event.registerBlock(
             Capabilities.Item.BLOCK,
             (level, blockPos, blockState, blockEntity, direction) ->

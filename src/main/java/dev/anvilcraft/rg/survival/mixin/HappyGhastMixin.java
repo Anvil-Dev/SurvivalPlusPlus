@@ -6,11 +6,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.HappyGhast;
+import net.minecraft.world.entity.animal.happyghast.HappyGhast;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,7 +22,7 @@ abstract class HappyGhastMixin extends LivingEntity {
     }
 
     @Inject(method = "getRiddenInput", at = @At("RETURN"), cancellable = true)
-    private void getRiddenInput(Player player, Vec3 vec3, @NotNull CallbackInfoReturnable<Vec3> cir) {
+    private void getRiddenInput(Player player, Vec3 vec3, CallbackInfoReturnable<Vec3> cir) {
         if (!SurvivalPlusPlusClientRules.betterHappyGhastControl) return;
         MobEffectInstance effect = this.getEffect(MobEffects.SPEED);
         double scale = 1.0D;

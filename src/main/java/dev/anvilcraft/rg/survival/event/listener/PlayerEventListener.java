@@ -33,7 +33,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = SurvivalPlusPlus.MOD_ID)
 public class PlayerEventListener {
@@ -63,7 +62,7 @@ public class PlayerEventListener {
     }
 
     @SubscribeEvent
-    public static void onPlayerChat(@NotNull ServerPlayerChatEvent event) {
+    public static void onPlayerChat(ServerPlayerChatEvent event) {
         ServerPlayer player = event.getEntity();
         Component component = event.getComponent();
         PlayerEventListener.handleChat(
@@ -76,7 +75,7 @@ public class PlayerEventListener {
     }
 
     @SubscribeEvent
-    public static void onPlayerCanPlace(@NotNull PlayerCanPlaceBlockItemEvent event) {
+    public static void onPlayerCanPlace(PlayerCanPlaceBlockItemEvent event) {
         if (event.canPlace()) return;
         BlockItem item = event.getItem();
         BlockPlaceContext context = event.getContext();
@@ -96,7 +95,7 @@ public class PlayerEventListener {
     }
 
     @SubscribeEvent
-    public static void onPlayerCanPlace(@NotNull PlayerCanPlaceStandingAndWallBlockItemEvent event) {
+    public static void onPlayerCanPlace(PlayerCanPlaceStandingAndWallBlockItemEvent event) {
         if (event.canPlace()) return;
         BlockPlaceContext context = event.getContext();
         BlockState state = event.getState();
@@ -113,7 +112,7 @@ public class PlayerEventListener {
 
     @SubscribeEvent
     @SuppressWarnings("resource")
-    public static void onTick(PlayerTickEvent.@NotNull Pre event) {
+    public static void onTick(PlayerTickEvent.Pre event) {
         if (SurvivalPlusPlusServerRules.easyBoneMeal < 0) return;
         Player entity = event.getEntity();
         Level level = entity.level();
@@ -142,7 +141,7 @@ public class PlayerEventListener {
         BlockState state,
         BlockPos pos,
         CollisionContext context,
-        @NotNull BlockPlaceContext contextOuter
+        BlockPlaceContext contextOuter
     ) {
         Player player = contextOuter.getPlayer();
         if (SurvivalPlusPlusServerRules.creativeNoClip && player != null && player.isCreative() && player.getAbilities().flying) {
