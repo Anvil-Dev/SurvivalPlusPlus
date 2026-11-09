@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(LevelRenderer.class)
 abstract class LevelRendererMixin {
-    @WrapOperation(method = "renderLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isSpectator()Z"))
+    @WrapOperation(method = {"update", "extractVisibleEntities"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isSpectator()Z"))
     private boolean canSeeWorldX(LocalPlayer instance, Operation<Boolean> original) {
         return original.call(instance) || (SurvivalPlusPlusServerRules.creativeNoClip && instance.isCreative());
     }

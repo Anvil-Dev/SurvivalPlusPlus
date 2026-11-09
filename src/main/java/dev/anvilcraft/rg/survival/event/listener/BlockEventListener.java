@@ -32,7 +32,7 @@ public class BlockEventListener {
         if (!state1.isAir()) return;
         MinecraftServer server = accessor.getServer();
         if (server == null) return;
-        TimerQueue<MinecraftServer> timerqueue = server.getWorldData().overworldData().getScheduledEvents();
+        TimerQueue<MinecraftServer> timerqueue = server.getScheduledEvents();
         for (Direction facing : event.getNotifiedSides()) {
             BlockPos offset = pos.relative(facing);
             if (!accessor.isAreaLoaded(offset, 1)) continue;

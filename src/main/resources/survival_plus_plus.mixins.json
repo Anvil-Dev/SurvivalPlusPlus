@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "dev.anvilcraft.rg.survival.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_25",
   "refmap": "survival_plus_plus.refmap.json",
   "mixins": [
     "BarrelBlockEntityCounterMixin",
